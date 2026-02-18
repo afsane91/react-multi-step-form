@@ -43,7 +43,7 @@ export default function BillingInfoStep({ onBack, saveBilling }: Props) {
 
   const onValid = (values: BillingInfo) => {
     saveBilling(values);
-    toast.success("Form Submitted Successfully 🎉", {
+    toast.success("Form Submitted Successfully)", {
       description: `Thank you ${values.cardholderName}! Your data has been saved successfully.`,
       action: {
         label: "Close",
