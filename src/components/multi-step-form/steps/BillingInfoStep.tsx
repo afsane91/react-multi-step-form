@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 import { billingInfoSchema, type BillingInfo } from "@/lib/types";
+import { toast } from "sonner";
 
 type Props = {
   onBack: () => void;
@@ -42,6 +43,13 @@ export default function BillingInfoStep({ onBack, saveBilling }: Props) {
 
   const onValid = (values: BillingInfo) => {
     saveBilling(values);
+    toast.success("Form Submitted Successfully 🎉", {
+      description: `Thank you ${values.cardholderName}! Your data has been saved successfully.`,
+      action: {
+        label: "Close",
+        onClick: () => console.log("closed"),
+      },
+    });
   };
 
   return (
