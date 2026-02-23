@@ -30,7 +30,7 @@ export default function ProfessionalInfoStep({
     resolver: zodResolver(ProfessionalInfoSchema),
     mode: "onSubmit",
     defaultValues: {
-      company: "RoadsideCoder",
+      company: "",
       position: "",
       experience: undefined,
       industry: "",
@@ -49,21 +49,10 @@ export default function ProfessionalInfoStep({
     formState: { errors },
   } = form;
 
-  // unified input style (same as Billing)
-  const inputClass =
-    "h-11 w-full rounded-md border bg-white px-3 py-2 text-base transition " +
-    "border-gray-200 shadow-sm " +
-    "placeholder:text-gray-400 " +
-    "hover:border-gray-300 hover:shadow " +
-    "focus:outline-none focus:border-transparent focus:ring-2 focus:ring-purple-500/20 " +
-    "focus:shadow-md";
-  const labelClass = "text-sm font-medium text-gray-700";
-
   return (
     <div className="w-full flex justify-center">
       <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-3xl">
         <div className="space-y-1">
-          {/* removed ProgressSteps placeholder text */}
           <h2 className="text-2xl font-semibold tracking-tight">
             Professional Details
           </h2>
@@ -74,14 +63,17 @@ export default function ProfessionalInfoStep({
 
         {/* Company */}
         <div className="space-y-1 pt-5">
-          <Label htmlFor="company" className={labelClass}>
+          <Label
+            htmlFor="company"
+            variant={errors.company ? "error" : "default"}
+          >
             Company
           </Label>
+
           <Input
             id="company"
-            className={`${inputClass} ${
-              errors.company ? "border-red-400!" : ""
-            }`}
+            placeholder="Microsoft"
+            variant={errors.company ? "error" : "plain"}
             {...register("company")}
           />
           {errors.company?.message && (
@@ -91,15 +83,16 @@ export default function ProfessionalInfoStep({
 
         {/* Position */}
         <div className="space-y-1 pt-4">
-          <Label htmlFor="position" className={labelClass}>
+          <Label
+            htmlFor="position"
+            variant={errors.position ? "error" : "default"}
+          >
             Position
           </Label>
           <Input
             id="position"
             placeholder="e.g. Frontend Developer"
-            className={`${inputClass} ${
-              errors.position ? "border-red-400!" : ""
-            }`}
+            variant={errors.position ? "error" : "plain"}
             {...register("position")}
           />
           {errors.position?.message && (
@@ -109,7 +102,9 @@ export default function ProfessionalInfoStep({
 
         {/* Years of Experience */}
         <div className="space-y-1 pt-4">
-          <Label className={labelClass}>Years of Experience</Label>
+          <Label variant={errors.experience ? "error" : "default"}>
+            Years of Experience
+          </Label>
 
           <Controller
             control={control}
@@ -117,11 +112,8 @@ export default function ProfessionalInfoStep({
             render={({ field }) => (
               <Select value={field.value as any} onValueChange={field.onChange}>
                 <SelectTrigger
-                  className={`${inputClass} w-full ${
-                    errors.experience
-                      ? "border-red-300 focus:ring-red-500/20"
-                      : ""
-                  }`}
+                  variant={errors.experience ? "error" : "soft"}
+                  className="w-full"
                 >
                   <SelectValue placeholder="Select experience" />
                 </SelectTrigger>
@@ -144,15 +136,16 @@ export default function ProfessionalInfoStep({
 
         {/* Industry */}
         <div className="space-y-1 pt-4">
-          <Label htmlFor="industry" className={labelClass}>
+          <Label
+            htmlFor="industry"
+            variant={errors.industry ? "error" : "default"}
+          >
             Industry
           </Label>
           <Input
             id="industry"
             placeholder="e.g. E-commerce"
-            className={`${inputClass} ${
-              errors.industry ? "border-red-400!" : ""
-            }`}
+            variant={errors.industry ? "error" : "plain"}
             {...register("industry")}
           />
           {errors.industry?.message && (

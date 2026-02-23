@@ -9,7 +9,7 @@ export default function CardForms({ children }: CardFormsProps) {
     <div className="min-h-screen flex items-center justify-center  ">
       <div className="w-full max-w-3xl">
         <Card>
-          <CardContent className="p-12">{children}</CardContent>
+          <CardContent className="p-10">{children}</CardContent>
         </Card>
       </div>
     </div>

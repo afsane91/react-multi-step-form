@@ -21,7 +21,7 @@ export default function ProgressSteps({ currentStep }: Props) {
                   className={cn(
                     "absolute top-4.5 left-0 h-0.75 w-1/2 rounded-full bg-gray-200",
                     (done || active) &&
-                      "bg-linear-to-r from-pink-500 via-purple-500 to-indigo-500",
+                      "bg-linear-to-r from-violet-500 to-indigo-500 opacity-90",
                   )}
                 />
               )}
@@ -32,7 +32,7 @@ export default function ProgressSteps({ currentStep }: Props) {
                   className={cn(
                     "absolute top-4.5 right-0 h-0.75 w-1/2 rounded-full bg-gray-200",
                     done &&
-                      "bg-linear-to-r from-pink-500 via-purple-500 to-indigo-500",
+                      "bg-linear-to-r from-violet-500 to-indigo-500 opacity-90",
                   )}
                 />
               )}

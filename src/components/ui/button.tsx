@@ -9,15 +9,26 @@ const buttonVariants = cva(
     variants: {
       variant: {
         gradient:
-          "text-white bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 " +
-          "shadow-md shadow-purple-500/25 " +
-          "hover:shadow-lg hover:shadow-purple-500/35 hover:scale-[1.02] " +
-          "active:scale-[0.98] cursor-pointer",
+          "text-white font-medium " +
+          "bg-violet-600 " +
+          "shadow-[0_10px_30px_rgba(124,58,237,0.22)] " +
+          "hover:bg-violet-700 " +
+          "hover:shadow-[0_16px_40px_rgba(124,58,237,0.32)] " +
+          "hover:-translate-y-[2px] " +
+          "active:scale-[0.96] " +
+          "transition-all duration-200",
 
         soft:
-          "bg-gradient-to-r from-gray-100 to-gray-50 text-gray-700 border border-gray-200 " +
-          "shadow-sm hover:shadow-md hover:scale-[1.02] " +
-          "hover:from-gray-200 hover:to-gray-100 active:scale-[0.98] cursor-pointer",
+          "font-medium text-gray-700 " +
+          "px-5 py-2.5 " +
+          "rounded-lg " +
+          "border border-gray-200 " +
+          "bg-white " +
+          "hover:bg-gray-50 " +
+          "hover:border-gray-300 " +
+          "hover:-translate-y-[1px] " +
+          "active:scale-[0.97] " +
+          "transition-all duration-200",
 
         ghost: "text-gray-600 hover:bg-gray-100 hover:text-black",
 
